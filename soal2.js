@@ -1,6 +1,6 @@
 const fs = require('fs')
 
-const payload = `03/22 08:54:24 INFO   :......rsvp_flow_stateMachine: state RESVED, event T1OUT
+const data = `03/22 08:54:24 INFO   :......rsvp_flow_stateMachine: state RESVED, event T1OUT
 03/22 08:54:24 TRACE  :.......rsvp_action_nHop: constructing a PATH
 03/22 08:54:24 TRACE  :.......flow_timer_start: started T1
 03/22 08:54:24 TRACE  :......rsvp_flow_stateMachine: reentering state RESVED
@@ -64,13 +64,17 @@ source=9.67.116.98:8000] ceased
 03/22 08:54:53 INFO   :.....terminator: process terminated with exit code 0
 `
 
-fs.writeFile('log.txt', payload, (err, data) => {
-    if (err) { console.log(err)};
+fs.writeFile('./log.txt', data, (err, data) => {
+    if (err) {
+         console.log(err)
+    };
 
     console.log("Data Berhasil disimpan")
 })
 
-fs.readFile('log.txt','utf-8', (err,data) => {
-    if (err) {console.log(err)};
+fs.readFile('./log.txt', "utf-8", (err,data) => {
+    if (err) {
+         console.log(err)
+    };
     console.log("Datanya adalah : ", data)
 })
